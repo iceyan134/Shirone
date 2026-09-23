@@ -1,96 +1,38 @@
 ---
-title: Markdown Steps
+title: Markdown 步骤
 published: 2026-08-27
-description: Present sequential instructions as a compact, accessible step flow in Shirone.
-tags: [Demo, Markdown, Steps, Shirone]
-category: Guides
-lang: en
+description: 用紧凑的步骤流展示教程、流程和检查清单。
+tags: [示例, Markdown, 步骤, Shirone]
+category: 教程
+lang: zh_CN
 draft: false
 ---
 
-Use Steps for procedures whose order matters. The component keeps the article reading flow intact: a quiet numbered rail provides orientation while headings, paragraphs, links, lists, and code retain their native Markdown roles.
+步骤语法适合写教程，让读者按顺序完成操作。
 
-## Ordered list syntax
+:::steps
+1. 修改配置或文章内容。
+2. 运行 `npx.cmd astro check`。
+3. 预览页面效果。
+4. 提交 git。
+:::
 
-Wrap one Markdown ordered list in a `:::steps` container. Each top-level list item becomes one step.
+## 带代码的步骤
 
-````markdown
-:::steps[Production deployment]
-1. **Clone and prepare the workspace**
-
-   Clone the repository and enter the project directory.
-
-   ```powershell
-   git clone https://github.com/LyraVoid/Shirone.git
-   Set-Location Shirone
-   ```
-
-2. **Install dependencies**
-
-   Use the repository's pinned package manager.
+:::steps
+1. 安装依赖。
 
    ```powershell
    pnpm.cmd install
    ```
 
-3. **Run project checks**
-
-   Confirm Astro diagnostics and TypeScript checks pass.
+2. 启动开发服务器。
 
    ```powershell
-   npx.cmd astro check
-   pnpm.cmd type-check
+   pnpm.cmd astro dev --port 4321
    ```
 
-4. **Build the production site**
-
-   Generate the static site and search index.
-
-   ```powershell
-   pnpm.cmd build
-   ```
-:::
-````
-
-:::steps[Production deployment]
-1. **Clone and prepare the workspace**
-
-   Clone the repository and enter the project directory.
-
-   ```powershell
-   git clone https://github.com/LyraVoid/Shirone.git
-   Set-Location Shirone
-   ```
-
-2. **Install dependencies**
-
-   Use the repository's pinned package manager.
-
-   ```powershell
-   pnpm.cmd install
-   ```
-
-3. **Run project checks**
-
-   Confirm Astro diagnostics and TypeScript checks pass.
-
-   ```powershell
-   npx.cmd astro check
-   pnpm.cmd type-check
-   ```
-
-4. **Build the production site**
-
-   Generate the static site and search index.
-
-   ```powershell
-   pnpm.cmd build
-   ```
+3. 打开 `http://localhost:4321` 查看效果。
 :::
 
-## Options
-
-- `:::steps[Title]` or `title="Title"` adds a visible label and accessible name.
-- `start=4` changes the first displayed step number.
-- The container must contain exactly one ordered list. Invalid or mixed input remains ordinary readable Markdown instead of being interpreted heuristically.
-- Rendering is completed during the site build and adds no client JavaScript or network requests.
+步骤不要太长；复杂说明可以放到步骤后的段落。

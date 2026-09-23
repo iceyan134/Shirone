@@ -1,40 +1,25 @@
 ---
-title: Markdown Marker Highlights
-published: 2026-08-28
-description: Highlight key phrases with token-driven marker syntax in Shirone Markdown.
-tags: [Demo, Markdown, Typography, Shirone]
-category: Guides
-lang: en
+title: Markdown 标记高亮
+published: 2026-08-27
+description: 用 token 驱动的标记语法突出重点词句。
+tags: [示例, Markdown, 高亮, Shirone]
+category: 教程
+lang: zh_CN
 draft: false
 ---
 
-Marker highlights bring attention to a specific phrase without turning the surrounding paragraph into a separate component. They render as native `<mark>` elements during the build and inherit the active M3E color system.
+标记高亮适合在长段落中突出重点，但不要整段都高亮。
 
-## Default emphasis
+这是一段普通文字，其中 ==这一句会被标记高亮==，读者可以快速看到重点。
 
-Use `==text==` when the article's primary color should carry the emphasis. This is useful for ==one decision that readers should retain== while they continue through an ordinary paragraph.
+你也可以用不同语义提示重点：
 
-The marker may contain ==nested **Markdown emphasis**== when the phrase needs a stronger hierarchy.
+:::tip
+如果一段内容需要整块强调，用提示块比标记高亮更合适。
+:::
 
-## Semantic colors
-
-Use a suffix when the meaning needs a different tonal role. The available variants are `primary`, `secondary`, `tertiary`, `error`, and `tip`.
-
-- ==Primary connects the phrase to the active theme=={.primary}
-- ==Secondary keeps a supporting distinction quiet=={.secondary}
-- ==Tertiary adds a separate editorial signal=={.tertiary}
-- ==Error identifies a condition that needs correction=={.error}
-- ==Tip highlights practical guidance=={.tip}
-
-## Author syntax
+## 写法
 
 ```markdown
-==Primary marker==
-
-==Secondary marker=={.secondary}
-==Tertiary marker=={.tertiary}
-==Error marker=={.error}
-==Tip marker=={.tip}
+普通文字里 ==需要强调的内容==。
 ```
-
-Inline code such as `==literal marker syntax==` and fenced examples stay literal, so documentation can explain the syntax without triggering it.

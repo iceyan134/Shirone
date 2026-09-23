@@ -1,50 +1,25 @@
 ---
-title: Content Annotations
+title: 内容注释
 published: 2026-08-27
-description: Add compact, accessible supporting notes to Shirone articles without interrupting the reading flow.
-tags: [Demo, Markdown, Annotation, Shirone]
-category: Guides
-lang: en
+description: 在正文旁添加紧凑的补充说明，让解释不打断阅读节奏。
+tags: [示例, Markdown, 注释, Shirone]
+category: 教程
+lang: zh_CN
 draft: false
 ---
 
-Content annotations keep supporting context close to a sentence without placing it directly in the reading flow. Activate the small note marker to reveal its content.
+内容注释适合解释术语、补充上下文或给出一个简短提醒。它比脚注更靠近正文，也比提示块更轻。
 
-## Basic syntax
+正文里可以这样写：{注释内容}[这是一条补充说明]。
 
-Add a `[+label]` reference in ordinary prose, then define the matching note elsewhere in the same article.
+## 使用建议
+
+- 用来解释一个词或一句话，不要塞整段文章。
+- 注释应该帮助阅读，而不是替代正文。
+- 如果内容很长，改用提示块或折叠面板。
 
 ```markdown
-Astro renders most of a page ahead of time and hydrates **interactive islands** [+islands] only when they need to become interactive.
-
-[+islands]:
-  An island is an interactive UI component surrounded by static HTML. This keeps the default page lightweight while preserving focused interactivity.
+术语{注释内容}[解释文字]
 ```
 
-Astro renders most of a page ahead of time and hydrates **interactive islands** [+islands] only when they need to become interactive.
-
-[+islands]:
-  An island is an interactive UI component surrounded by static HTML. This keeps the default page lightweight while preserving focused interactivity.
-
-## Rich content
-
-Definitions may contain paragraphs, emphasis, links, lists, and inline code [+rich-note] while the surrounding sentence continues normally.
-
-[+rich-note]:
-  **Authoring guidance**
-
-  - Keep the first sentence self-contained.
-  - Use a link when readers may need the primary source.
-  - Prefer concise examples such as `client:visible`.
-
-  See the [Astro islands documentation](https://docs.astro.build/en/concepts/islands/) for the full model.
-
-## Multiple definitions
-
-Reuse a label [+review] to present a short sequence of related notes behind one marker.
-
-[+review]: Start with the decision that changes the reader's next action.
-[+review]: Keep implementation evidence separate from background context.
-[+review]: Remove details that belong in the main article instead of the annotation.
-
-Undefined references such as `[+missing]` remain ordinary text, so an unfinished definition never creates an empty control.
+在移动端，注释会保持可点击和可读，不会挤压正文排版。

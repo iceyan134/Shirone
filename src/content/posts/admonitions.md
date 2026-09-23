@@ -1,70 +1,70 @@
 ---
-title: Markdown Admonitions
+title: Markdown 提示块
 published: 2026-08-27
-description: Present notes, warnings, and optional details with Shirone's M3E Markdown containers.
-tags: [Demo, Markdown, Admonition, Shirone]
-category: Guides
-lang: en
+description: 使用 Shirone 的 M3E 提示容器展示备注、提醒、警告和可展开内容。
+tags: [示例, Markdown, 提示块, Shirone]
+category: 教程
+lang: zh_CN
 draft: false
 ---
 
-Admonitions keep supporting information visually distinct while preserving the article's reading flow. Every form is rendered on the server and uses the same compact M3E component.
+提示块适合放补充信息，让正文节奏保持清楚。Shirone 会在构建时把这些语法渲染成统一的 M3E 样式。
 
-## Semantic variants
+## 语义类型
 
-::: note Deployment context
-The spaced form accepts a plain custom title while remaining compatible with the reference syntax.
+::: note 部署上下文
+带空格的写法可以直接提供中文标题，也兼容常见 Markdown 容器语法。
 :::
 
 :::info
-Use information blocks for neutral context that helps readers understand the surrounding section.
+信息块适合写中性的背景说明，帮助读者理解上下文。
 :::
 
-:::tip[Existing **label** syntax]
-The original bracket label remains available and can contain inline Markdown emphasis.
+:::tip[支持 **Markdown** 的标题]
+方括号标题仍然可用，标题里可以包含加粗、代码等行内 Markdown。
 :::
 
 > [!IMPORTANT]
-> GitHub Alert syntax enters the same renderer, so existing articles keep one visual language.
+> GitHub Alert 语法也会进入同一套渲染器，迁移旧文章时不用重写全部内容。
 
 :::warning
-Check environment variables before running a production build.
+生产构建前请检查环境变量和部署配置。
 :::
 
 :::caution
-Do not publish credentials, local configuration, or private keys with an example.
+示例文章里不要公开真实密钥、令牌、本地配置或隐私信息。
 :::
 
-## Optional details
+## 可展开详情
 
-::: details Inspect the complete command
-The disclosure uses native browser semantics and remains keyboard accessible without client JavaScript.
+::: details 查看完整命令
+详情块默认收起，使用浏览器原生语义，键盘也能操作。
 
 ```powershell
 npx.cmd astro check
 pnpm.cmd build
 ```
 
-- It starts closed.
-- Long code can scroll inside its own code block.
-- The container remains within the article width on narrow screens.
+- 初始状态是关闭的。
+- 长代码会在代码块内部滚动。
+- 窄屏下仍然保持在文章宽度内。
 :::
 
-## Author syntax
+## 作者写法
 
 ```markdown
-:::note[Existing title syntax]
-Content
+:::note[方括号标题]
+内容
 :::
 
-::: warning Plume-compatible title syntax
-Content
+::: warning 空格标题写法
+内容
 :::
 
 > [!TIP]
-> GitHub Alert syntax
+> GitHub Alert 语法
 
-::: details Optional content
-Hidden until the reader opens it.
+::: details 可选内容
+读者展开后才看到。
 :::
 ```

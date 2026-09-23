@@ -1,70 +1,36 @@
 ---
-title: Markdown Collapse Panels
-published: 2026-08-28
-description: Group optional Markdown content into compact, accessible M3E disclosure panels.
-tags: [Demo, Markdown, Collapse, Shirone]
-category: Guides
-lang: en
+title: Markdown 折叠面板
+published: 2026-08-27
+description: 使用可访问的折叠面板收纳较长的补充内容、答案或配置说明。
+tags: [示例, Markdown, 折叠面板, Shirone]
+category: 教程
+lang: zh_CN
 draft: false
 ---
 
-Collapse panels keep related optional details in one compact group. Titles and bodies retain inline and block Markdown, while native disclosure semantics make every panel usable without client JavaScript.
+折叠面板适合放“想看再展开”的内容，例如详细命令、答案解析、长日志或备用配置。
 
-## Independent panels
-
-Items open independently by default. Prefix a title with `:+` to open that item initially or `:-` to keep it closed when the group uses `expand`.
-
-::: collapse
-- **Package requirements**
-
-  Use Node.js 22 or newer and enable Corepack before installing packages.
-
-- :+ Install dependencies
-
-  Run the workspace package command from the repository root.
-
-  ```powershell
-  pnpm.cmd install
-  ```
-
-- Validation commands
-
-  Check the content pipeline before building the production output.
-
-  - `pnpm.cmd check:manifest`
-  - `npx.cmd astro check`
+:::details[展开查看命令]
+```powershell
+npx.cmd astro check
+pnpm.cmd build
+```
 :::
 
-## Accordion mode
-
-Add `accordion` when only one answer should remain open. The browser groups the native disclosures directly, so opening another item closes the previous one without hydration.
-
-::: collapse accordion expand
-- What does `expand` do here?
-
-  It opens the first item initially when no item has a `:+` marker.
-
-- Can a title contain Markdown?
-
-  Yes. Titles support inline **emphasis** and `code`, while panel bodies support full block Markdown.
-
-- What happens on a narrow screen?
-
-  Content padding becomes compact, long text wraps, and embedded code keeps its own horizontal scrolling area.
+:::details 故障排查建议
+如果你改了 Markdown 插件但页面没有变化，可以清理 `.astro/data-store.json` 后重启开发服务器。
 :::
 
-## Author syntax
+## 写法
 
-````markdown
-::: collapse accordion
-- :+ First title
-
-  First panel content.
-
-- Second title with `code`
-
-  Second panel content.
+```markdown
+:::details[标题]
+这里是折叠内容。
 :::
-````
 
-The container must contain exactly one top-level unordered list. Every item needs a title paragraph, a blank line, and body content. Invalid or mixed input remains an ordinary readable Markdown list.
+:::details 空格标题也可以
+内容支持 Markdown、列表和代码块。
+:::
+```
+
+折叠内容在 SSR 阶段输出，不依赖客户端框架才能阅读。

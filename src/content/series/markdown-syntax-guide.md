@@ -1,16 +1,7 @@
 ---
-title: Markdown Syntax Guide
-status: completed
-defaultCategory: Guides
+title: Markdown 语法指南
+status: ongoing
+defaultCategory: 教程
 ---
 
-A guided walk through Shirone's Markdown capabilities, from the plain syntax
-basics to the theme-specific extensions.
-
-- **Part 1** starts with the vanilla Markdown syntax every post supports.
-- **Part 2** covers the extended features on top of it.
-- **Part 3** dives into Shirone's own enhancements (admonitions, content
-  annotations, and the other M3E containers).
-
-The series is **completed**. Note that `defaultCategory` only acts as a
-fallback: a post may still declare its own explicit `category` to override it.
+这个系列用于演示 Shirone 内置的 Markdown 增强能力：提示块、折叠面板、步骤、选项组、图片网格、Mermaid、代码高亮、加密文章和 MDX 组件。

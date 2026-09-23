@@ -1,111 +1,33 @@
 ---
-title: Markdown Field Cards
-description: API and component parameter documentation cards.
-published: 2026-08-30
-category: Guides
-draft: true
+title: Markdown 参数字段卡片
+published: 2026-08-27
+description: 用字段卡片记录 API、组件参数或配置项。
+tags: [Markdown, 字段, 文档, 示例]
+category: 教程
+lang: zh_CN
+draft: false
 ---
 
-Use `field-group` when several related options belong to the same API or component. Put the field name on the opening line, then add metadata tags before the description.
+字段卡片适合写配置说明、组件 props 或 API 参数，比普通表格更适合逐项解释。
 
-:::: field-group
-
-::: field tex
-@type object
-@optional
-
-TeX parser options.
+:::field{name="title" type="string" required=true}
+文章标题。会显示在文章页、列表卡片和浏览器标题里。
 :::
 
-::: field output
-@type `'svg' | 'chtml'`
-@default `'svg'`
-@optional
-
-Output format, SVG or generic HTML.
+:::field{name="published" type="Date" required=true}
+发布日期，格式为 `YYYY-MM-DD`。
 :::
 
-::::
-
-## Basic Fields
-
-Required, optional, and deprecated statuses can be mixed in one group. Default values are kept separate from the type so they remain easy to scan.
-
-:::: field-group
-
-::: field title
-@type string
-@required
-
-The visible title of the component. This value is shown in the page heading and should be short enough to scan quickly.
+:::field{name="draft" type="boolean" default="false"}
+是否为草稿。生产构建时草稿不会发布。
 :::
 
-::: field disabled
-@type boolean
-@default `false`
-@optional
+## 写法
 
-Whether the control starts in a disabled state.
+```markdown
+:::field{name="title" type="string" required=true}
+字段说明。
 :::
+```
 
-::: field locale
-@type `'en' | 'zh-CN' | 'ja-JP'`
-@default `'en'`
-@optional
-
-Locale used for formatting dates, numbers, and accessible labels.
-:::
-
-::::
-
-## Rich Descriptions
-
-Descriptions are ordinary Markdown. Links, emphasis, lists, and inline code remain available after the metadata lines.
-
-:::: field-group
-
-::: field render
-@type `(value: unknown) => string`
-@required
-
-Render a value into the final output. The callback should return a **safe string** and may use the `formatValue` helper.
-
-- Keep rendering deterministic.
-- Avoid network requests inside the callback.
-:::
-
-::: field retries
-@type number
-@default `3`
-@optional
-
-Maximum number of attempts before the request is reported as failed.
-:::
-
-::: field legacyMode
-@type boolean
-@deprecated
-
-Kept for backwards compatibility. New integrations should use `compatibility` instead.
-:::
-
-::::
-
-## Standalone Field
-
-A single field can be used without a group when documenting one option next to an example or code block.
-
-::: field format
-@type `'short' | 'long'`
-@default `'short'`
-@optional
-
-Controls how the result is formatted.
-:::
-
-## Authoring Notes
-
-- `@type` and `@default` values are rendered as code tokens.
-- `@required`, `@optional`, and `@deprecated` add a status badge.
-- Any normal Markdown after the metadata becomes the field description.
-- Unknown `@tags` remain visible as description text instead of being discarded.
+如果字段很多，也可以改用普通 Markdown 表格。

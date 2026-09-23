@@ -1,22 +1,21 @@
 ---
-title: Draft Example
-published: 2022-07-01
-tags: [Markdown, Blogging, Demo]
-category: Examples
+title: 草稿示例
+published: 2026-08-27
+description: 这篇文章展示 draft 字段的作用。
+tags: [草稿, 示例]
+category: 教程
+lang: zh_CN
 draft: true
 ---
 
-# This Article is a Draft
+# 这是一篇草稿
 
-This article is currently in a draft state and is not published. Therefore, it will not be visible to the general audience. The content is still a work in progress and may require further editing and review.
+`draft: true` 的文章不会出现在生产构建里，适合保存未完成内容。
 
-When the article is ready for publication, you can update the "draft" field to "false" in the Frontmatter:
+如果想发布，把 frontmatter 改成：
 
-```markdown
----
-title: Draft Example
-published: 2024-01-11T04:40:26.381Z
-tags: [Markdown, Blogging, Demo]
-category: Examples
+```yaml
 draft: false
----
+```
+
+建议写正式文章时先保持草稿状态，确认标题、摘要、标签、封面和正文都准备好后再发布。
