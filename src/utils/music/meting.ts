@@ -20,6 +20,17 @@ export interface RawMetingSong {
 	lrc?: string;
 }
 
+const TITLE_DETAIL_PATTERN =
+	/\s*[（(【\[][^）)】\]]*(?:mix|remix|吉他|伴奏|instrumental|cover|版|ver\.?)[^）)】\]]*[）)】\]]\s*$/i;
+
+function cleanMetingTitle(value: string): string {
+	let title = value.trim();
+	while (TITLE_DETAIL_PATTERN.test(title)) {
+		title = title.replace(TITLE_DETAIL_PATTERN, "").trim();
+	}
+	return title || value.trim();
+}
+
 /**
  * 根据 Meting 配置组装请求 URL。若 ID 为空则返回 null。
  */
@@ -50,7 +61,7 @@ export function parseMetingSong(
 ): TrackDescriptor | null {
 	if (!song || typeof song !== "object") return null;
 
-	const title = (song.name ?? song.title ?? "").trim();
+	const title = cleanMetingTitle(song.name ?? song.title ?? "");
 	const source = (song.url ?? "").trim();
 	if (!title || !source) return null;
 
@@ -98,23 +109,38 @@ export async function fetchMetingTracks(
 	const url = buildMetingUrl(config);
 	if (!url) return [];
 
-	const response = await customFetch(url);
-	if (!response.ok) {
-		throw new Error(`Meting API HTTP ${response.status}`);
-	}
-
-	const data = (await response.json()) as RawMetingSong[];
-	if (!Array.isArray(data)) return [];
-
+	const ids =
+		(config.type ?? DEFAULT_METING_TYPE) === "song"
+			? config.id
+					?.split(",")
+					.map((id) => id.trim())
+					.filter(Boolean)
+			: null;
+	const configs = ids?.length
+		? ids.map((id) => ({ ...config, id }))
+		: [config];
 	const server = config.server || DEFAULT_METING_SERVER;
 	const tracks: TrackDescriptor[] = [];
 	const seenIds = new Set<string>();
 
-	for (let i = 0; i < data.length; i++) {
-		const track = parseMetingSong(data[i], i, server);
-		if (track && !seenIds.has(track.id)) {
-			seenIds.add(track.id);
-			tracks.push(track);
+	for (const [configIndex, targetConfig] of configs.entries()) {
+		const targetUrl = configs.length === 1 ? url : buildMetingUrl(targetConfig);
+		if (!targetUrl) continue;
+
+		const response = await customFetch(targetUrl);
+		if (!response.ok) {
+			throw new Error(`Meting API HTTP ${response.status}`);
+		}
+
+		const data = (await response.json()) as RawMetingSong[];
+		if (!Array.isArray(data)) continue;
+
+		for (let i = 0; i < data.length; i++) {
+			const track = parseMetingSong(data[i], configIndex + i, server);
+			if (track && !seenIds.has(track.id)) {
+				seenIds.add(track.id);
+				tracks.push(track);
+			}
 		}
 	}
 

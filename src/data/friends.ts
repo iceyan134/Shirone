@@ -40,6 +40,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://m3.material.io",
 		tags: ["Design"],
 	},
+	{
+		id: 4,
+		title: "DataHuk Blog",
+		imgurl: "https://blog.datahuk.top/favicon.ico",
+		desc: "DataHuk 的个人博客。",
+		siteurl: "https://blog.datahuk.top/",
+		tags: ["Blog", "Friend"],
+	},
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
