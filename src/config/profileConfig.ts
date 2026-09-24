@@ -15,5 +15,20 @@ export const profileConfig: ProfileConfig = withUserConfig("profile", {
 			icon: "material-symbols:language",
 			url: "https://blog.173469.xyz/",
 		},
+		{
+			name: "QQ",
+			icon: "simple-icons:qq",
+			url: "https://wpa.qq.com/msgrd?v=3&uin=1813518668&site=qq&menu=yes", // 替换为你的QQ号或QQ群链接
+		},
+		{
+			name: "Steam",
+			icon: "simple-icons:steam",
+			url: "https://steamcommunity.com/profiles/76561198984829274/", // 替换为你的Steam主页链接
+		},
+		{
+			name: "Bilibili",
+			icon: "simple-icons:bilibili",
+			url: "https://space.bilibili.com/71259129", // 替换为你的B站空间链接
+		},
 	],
 });
