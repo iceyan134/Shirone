@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-const GAME_COUNT = 6;
+const GAME_COUNT = 26;
+const STEAM_GAME_COUNT = 20;
 
 test.describe("游戏体验页", () => {
 	test.beforeEach(async ({ page }) => {
@@ -13,7 +14,7 @@ test.describe("游戏体验页", () => {
 			"data-current-page",
 			"games",
 		);
-		await expect(page.locator(".games-section__count")).toContainText("6");
+		await expect(page.locator(".games-section__count")).toContainText("26");
 
 		const atm9 = page.locator('[data-game="minecraft-atm9"]');
 		await expect(atm9.locator("h2")).toHaveText("All the Mods 9（ATM9）");
@@ -39,6 +40,13 @@ test.describe("游戏体验页", () => {
 		await expect(
 			page.locator('[data-game="terraria-story-of-red-cloud"]'),
 		).toBeVisible();
+
+		const counterStrike = page.locator('[data-game="steam-730"]');
+		await expect(counterStrike.locator("h2")).toHaveText("Counter-Strike 2");
+		await expect(counterStrike.locator(".game-card__hours")).toContainText(
+			"382.6",
+		);
+		await expect(counterStrike.locator('[data-status="played"]')).toBeVisible();
 	});
 
 	test("分类筛选与刷新保留对应体验条目", async ({ page }) => {
@@ -50,6 +58,7 @@ test.describe("游戏体验页", () => {
 		await expect(page.locator('[data-game="terraria-calamity"]')).toHaveCount(
 			0,
 		);
+		await expect(page.locator('[data-game^="steam-"]')).toHaveCount(0);
 		await expect(page.locator(".games-section__count")).toContainText("4");
 
 		await page.reload();
@@ -69,6 +78,17 @@ test.describe("游戏体验页", () => {
 		await expect(
 			page.locator('[data-game="terraria-story-of-red-cloud"]'),
 		).toBeVisible();
+
+		await page
+			.getByRole("button", { name: "泰拉瑞亚模组", exact: true })
+			.click();
+		await page
+			.getByRole("button", { name: "Steam 常玩游戏", exact: true })
+			.click();
+		await expect(page.locator(".game-card")).toHaveCount(STEAM_GAME_COUNT);
+		await expect(page.locator('[data-game^="steam-"]')).toHaveCount(
+			STEAM_GAME_COUNT,
+		);
 	});
 
 	test("搜索体验条目并清除查询", async ({ page }) => {

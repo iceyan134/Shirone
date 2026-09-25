@@ -1,14 +1,15 @@
 /**
  * 个人整合包与模组体验清单。游玩时长、评分等未提供的数据不作推测。
- * Steam 完整游戏库会在取得全量清单后再补充。
+ * Steam playtime data is limited to the 20 most-played titles.
  */
 import type { GameItem } from "@/types/gamesConfig";
+import steamGamesSnapshot from "./steam-games.json";
 
 const minecraftCover = "assets/games/minecraft-hero.jpg";
 const terrariaCover =
 	"https://cdn.akamai.steamstatic.com/steam/apps/105600/header.jpg";
 
-export const gamesData: GameItem[] = [
+const personalExperiences: GameItem[] = [
 	{
 		id: "minecraft-atm9",
 		name: "All the Mods 9（ATM9）",
@@ -94,3 +95,19 @@ export const gamesData: GameItem[] = [
 		link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2824879484&l=schinese",
 	},
 ];
+
+const steamLibrary: GameItem[] = steamGamesSnapshot.map((game) => ({
+	id: `steam-${game.appid}`,
+	name: game.name,
+	developer: "Steam 游戏库",
+	category: "steam-library",
+	status: game.hours > 0 ? "played" : "backlog",
+	cover: `https://cdn.akamai.steamstatic.com/steam/apps/${game.appid}/header.jpg`,
+	icon: "material-symbols:sports-esports-outline-rounded",
+	hours: game.hours,
+	platform: "Steam",
+	description: "来自 Steam 常玩游戏列表的游玩记录。",
+	link: `https://store.steampowered.com/app/${game.appid}/`,
+}));
+
+export const gamesData: GameItem[] = [...personalExperiences, ...steamLibrary];

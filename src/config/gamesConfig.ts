@@ -29,6 +29,12 @@ export const gamesConfig: GamesConfig = withUserConfig("games", {
 			icon: "material-symbols:swords-outline-rounded",
 			description: "大型内容模组与独立冒险流程",
 		},
+		{
+			key: "steam-library",
+			label: "Steam 常玩游戏",
+			icon: "material-symbols:stadia-controller-rounded",
+			description: "按总游玩时长展示 Steam 前 20 款游戏",
+		},
 	],
 	// disabledIds: [],
 });
