@@ -31,7 +31,7 @@ const personalExperiences: GameItem[] = [
 		category: "minecraft-modpack",
 		status: "played",
 		cover: minecraftCover,
-		icon: "material-symbols:catching-pokemon-rounded",
+		icon: "material-symbols:cruelty-free-rounded",
 		platform: "Minecraft · Cobblemon",
 		tags: ["方块宝可梦", "剧情 RPG", "沉浸体验"],
 		description:
