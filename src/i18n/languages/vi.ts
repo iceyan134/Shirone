@@ -100,6 +100,7 @@ export const vi: Translation = {
 	[Key.gamesCategoryLabel]: "Danh mục trò chơi",
 	[Key.gamesStatusPlaying]: "Đang chơi",
 	[Key.gamesStatusCompleted]: "Đã hoàn thành",
+	[Key.gamesStatusPlayed]: "Đã trải nghiệm",
 	[Key.gamesStatusBacklog]: "Chờ chơi",
 	[Key.gamesStatusWishlist]: "Danh sách mong muốn",
 	[Key.gamesViewDetails]: "Trang cửa hàng",

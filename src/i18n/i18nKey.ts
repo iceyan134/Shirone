@@ -93,6 +93,7 @@ enum I18nKey {
 	gamesCategoryLabel = "gamesCategoryLabel",
 	gamesStatusPlaying = "gamesStatusPlaying",
 	gamesStatusCompleted = "gamesStatusCompleted",
+	gamesStatusPlayed = "gamesStatusPlayed",
 	gamesStatusBacklog = "gamesStatusBacklog",
 	gamesStatusWishlist = "gamesStatusWishlist",
 	gamesViewDetails = "gamesViewDetails",

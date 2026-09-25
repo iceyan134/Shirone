@@ -102,6 +102,7 @@ export const id: Translation = {
 	[Key.gamesCategoryLabel]: "Kategori game",
 	[Key.gamesStatusPlaying]: "Dimainkan",
 	[Key.gamesStatusCompleted]: "Selesai",
+	[Key.gamesStatusPlayed]: "Pernah dimainkan",
 	[Key.gamesStatusBacklog]: "Tertunda",
 	[Key.gamesStatusWishlist]: "Daftar keinginan",
 	[Key.gamesViewDetails]: "Halaman toko",

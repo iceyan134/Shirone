@@ -92,6 +92,7 @@ export const th: Translation = {
 	[Key.gamesCategoryLabel]: "หมวดหมู่เกม",
 	[Key.gamesStatusPlaying]: "กำลังเล่น",
 	[Key.gamesStatusCompleted]: "เล่นจบ",
+	[Key.gamesStatusPlayed]: "เคยเล่น",
 	[Key.gamesStatusBacklog]: "รอเล่น",
 	[Key.gamesStatusWishlist]: "รายการประสงค์",
 	[Key.gamesViewDetails]: "หน้าร้านค้า",

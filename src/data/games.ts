@@ -1,51 +1,96 @@
 /**
- * 游戏展示页数据源（纯内容）。
- * 页面展示与筛选规则由 src/config/gamesConfig.ts 控制。
- *
- * 封面支持三种写法：
- * - src/assets 相对路径（如本文件所用，走 Astro 图片管线自动优化为 webp/avif）；
- * - /public 绝对路径（如 "/assets/games/xxx.webp"，原样输出）；
- * - 远程 URL（https://…）。
- *
- * 注：以下为演示条目——评分 / 时长 / 状态是占位数值，请按自己的实际情况调整；
- * 封面取自各游戏官方商店页或官网主视觉。
+ * 个人整合包与模组体验清单。游玩时长、评分等未提供的数据不作推测。
+ * Steam 完整游戏库会在取得全量清单后再补充。
  */
 import type { GameItem } from "@/types/gamesConfig";
 
+const minecraftCover = "assets/games/minecraft-hero.jpg";
+const terrariaCover =
+	"https://cdn.akamai.steamstatic.com/steam/apps/105600/header.jpg";
+
 export const gamesData: GameItem[] = [
 	{
-		id: "nte-neverness-to-everness",
-		name: "NTE: Neverness to Everness",
-		developer: "Hotta Studio",
-		category: "open-world",
-		status: "playing",
-		cover: "assets/games/yihuan-hero.jpg",
-		icon: "material-symbols:explore-outline-rounded",
-		rating: 4.5,
-		hours: 86,
-		platform: "PC",
-		year: "2026",
-		tags: ["Open World", "Urban", "Supernatural"],
+		id: "minecraft-atm9",
+		name: "All the Mods 9（ATM9）",
+		developer: "ATMTeam",
+		category: "minecraft-modpack",
+		status: "played",
+		cover: minecraftCover,
+		icon: "material-symbols:widgets-rounded",
+		platform: "Minecraft · Forge",
+		tags: ["大型整合包", "科技与魔法", "任务线"],
 		description:
-			"A supernatural urban open-world RPG. As an anomaly-user who senses the “waves” of people and anomalies, you join E.T.D Squad Six and investigate the city's paranormal events.",
-		link: "https://yh.wanmei.com/main.html",
-		featured: true,
+			"内容庞大的综合型整合包，把科技、魔法、探索和任务串在一起，终局目标是合成 ATM 星。",
+		link: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9",
 	},
 	{
-		id: "minecraft",
-		name: "Minecraft",
-		developer: "Mojang Studios",
-		category: "sandbox",
-		status: "playing",
-		cover: "assets/games/minecraft-hero.jpg",
-		icon: "material-symbols:widgets-rounded",
-		rating: 5,
-		hours: 420,
-		platform: "PC",
-		year: "2011",
-		tags: ["Sandbox", "Survival", "Building"],
+		id: "minecraft-cobblemon-chibai-zhenxing",
+		name: "方可梦：炽白真形",
+		developer: "社区整合包",
+		category: "minecraft-modpack",
+		status: "played",
+		cover: minecraftCover,
+		icon: "material-symbols:catching-pokemon-rounded",
+		platform: "Minecraft · Cobblemon",
+		tags: ["方块宝可梦", "剧情 RPG", "沉浸体验"],
 		description:
-			"A blocky sandbox where you mine, craft and build across procedurally generated worlds. Survive the night, or just keep building — alone or with friends.",
-		link: "https://www.minecraft.net/",
+			"以方块宝可梦为核心的剧情向整合包，把宝可梦冒险和 Minecraft 世界探索结合起来。",
+		link: "https://search.bilibili.com/all?keyword=%E6%96%B9%E5%8F%AF%E6%A2%A6%EF%BC%9A%E7%82%BD%E7%99%BD%E7%9C%9F%E5%BD%A2",
+	},
+	{
+		id: "minecraft-deceasedcraft",
+		name: "亡者世界（DeceasedCraft）",
+		developer: "TqLxQuanZ",
+		category: "minecraft-modpack",
+		status: "played",
+		cover: minecraftCover,
+		icon: "material-symbols:warning-outline-rounded",
+		platform: "Minecraft · Forge",
+		tags: ["丧尸末日", "搜刮生存", "科技成长"],
+		description:
+			"在感染者占据的城市里探索、搜刮并求生，再通过科技成长和装备准备挑战更危险的区域。",
+		link: "https://www.curseforge.com/minecraft/modpacks/deceasedcraft",
+	},
+	{
+		id: "minecraft-create-above-and-beyond",
+		name: "机械动力：永无止境（Create: Above and Beyond）",
+		developer: "simibubi",
+		category: "minecraft-modpack",
+		status: "played",
+		cover: minecraftCover,
+		icon: "material-symbols:settings-outline-rounded",
+		platform: "Minecraft · Forge",
+		tags: ["机械动力", "自动化", "挑战任务"],
+		description:
+			"以机械动力为核心的挑战型整合包，通过层层递进的任务与配方，逐步搭起自动化生产链。",
+		link: "https://www.curseforge.com/minecraft/modpacks/create-above-and-beyond",
+	},
+	{
+		id: "terraria-calamity",
+		name: "泰拉瑞亚：灾厄（Calamity）",
+		developer: "Calamity Mod Team",
+		category: "terraria-mod",
+		status: "played",
+		cover: terrariaCover,
+		icon: "material-symbols:swords-outline-rounded",
+		platform: "Terraria · tModLoader",
+		tags: ["大型内容模组", "Boss 挑战", "装备成长"],
+		description:
+			"为泰拉瑞亚扩展首领、敌人、装备和阶段内容的一次大型模组流程体验。",
+		link: "https://calamitymod.wiki.gg/",
+	},
+	{
+		id: "terraria-story-of-red-cloud",
+		name: "泰拉瑞亚：红云物语（Story of Red Cloud）",
+		developer: "红云物语模组作者",
+		category: "terraria-mod",
+		status: "played",
+		cover: terrariaCover,
+		icon: "material-symbols:cloud-outline-rounded",
+		platform: "Terraria · tModLoader",
+		tags: ["魂类灵感", "自定义地图", "冒险流程"],
+		description:
+			"受魂类游戏启发，以定制地图、模组和音乐构成完整冒险流程；它和灾厄是两段分开的体验。",
+		link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2824879484&l=schinese",
 	},
 ];

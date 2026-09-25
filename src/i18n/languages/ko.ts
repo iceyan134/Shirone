@@ -98,6 +98,7 @@ export const ko: Translation = {
 	[Key.gamesCategoryLabel]: "게임 카테고리",
 	[Key.gamesStatusPlaying]: "플레이 중",
 	[Key.gamesStatusCompleted]: "클리어",
+	[Key.gamesStatusPlayed]: "플레이해 봄",
 	[Key.gamesStatusBacklog]: "밀린 게임",
 	[Key.gamesStatusWishlist]: "위시리스트",
 	[Key.gamesViewDetails]: "스토어 페이지",

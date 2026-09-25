@@ -100,6 +100,7 @@ export const es: Translation = {
 	[Key.gamesCategoryLabel]: "Categorías de juegos",
 	[Key.gamesStatusPlaying]: "Jugando",
 	[Key.gamesStatusCompleted]: "Completado",
+	[Key.gamesStatusPlayed]: "Jugado",
 	[Key.gamesStatusBacklog]: "Pendiente",
 	[Key.gamesStatusWishlist]: "Lista de deseos",
 	[Key.gamesViewDetails]: "Página de la tienda",

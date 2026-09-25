@@ -97,6 +97,7 @@ export const ja: Translation = {
 	[Key.gamesCategoryLabel]: "ゲームカテゴリー",
 	[Key.gamesStatusPlaying]: "プレイ中",
 	[Key.gamesStatusCompleted]: "クリア",
+	[Key.gamesStatusPlayed]: "プレイ済み",
 	[Key.gamesStatusBacklog]: "積みゲー",
 	[Key.gamesStatusWishlist]: "ウィッシュリスト",
 	[Key.gamesViewDetails]: "ストアページ",

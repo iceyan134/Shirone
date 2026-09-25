@@ -99,6 +99,7 @@ export const tr: Translation = {
 	[Key.gamesCategoryLabel]: "Oyun kategorileri",
 	[Key.gamesStatusPlaying]: "Oynanıyor",
 	[Key.gamesStatusCompleted]: "Tamamlandı",
+	[Key.gamesStatusPlayed]: "Oynandı",
 	[Key.gamesStatusBacklog]: "Bekleyen",
 	[Key.gamesStatusWishlist]: "İstek listesi",
 	[Key.gamesViewDetails]: "Mağaza sayfası",

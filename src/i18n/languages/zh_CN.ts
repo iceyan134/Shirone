@@ -92,6 +92,7 @@ export const zh_CN: Translation = {
 	[Key.gamesCategoryLabel]: "游戏分类",
 	[Key.gamesStatusPlaying]: "正在游玩",
 	[Key.gamesStatusCompleted]: "已通关",
+	[Key.gamesStatusPlayed]: "已体验",
 	[Key.gamesStatusBacklog]: "积压待玩",
 	[Key.gamesStatusWishlist]: "愿望清单",
 	[Key.gamesViewDetails]: "商店页面",

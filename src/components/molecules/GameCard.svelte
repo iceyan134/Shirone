@@ -41,6 +41,12 @@ const statusMeta: Record<
 		bg: "var(--tertiary)",
 		fg: "var(--on-tertiary)",
 	},
+	played: {
+		key: I18nKey.gamesStatusPlayed,
+		icon: "material-symbols:check-circle-outline-rounded",
+		bg: "var(--secondary)",
+		fg: "var(--on-secondary)",
+	},
 	backlog: {
 		key: I18nKey.gamesStatusBacklog,
 		icon: "material-symbols:hourglass-empty-rounded",

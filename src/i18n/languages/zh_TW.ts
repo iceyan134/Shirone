@@ -92,6 +92,7 @@ export const zh_TW: Translation = {
 	[Key.gamesCategoryLabel]: "遊戲分類",
 	[Key.gamesStatusPlaying]: "正在遊玩",
 	[Key.gamesStatusCompleted]: "已破關",
+	[Key.gamesStatusPlayed]: "已體驗",
 	[Key.gamesStatusBacklog]: "積壓待玩",
 	[Key.gamesStatusWishlist]: "願望清單",
 	[Key.gamesViewDetails]: "商店頁面",

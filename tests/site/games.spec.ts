@@ -1,131 +1,104 @@
 import { expect, test } from "@playwright/test";
 
-const GAME_COUNT = 2;
+const GAME_COUNT = 6;
 
-test.describe("游戏展示页", () => {
+test.describe("游戏体验页", () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto("/games/");
 		await expect(page.locator(".game-card")).toHaveCount(GAME_COUNT);
 	});
 
-	test("渲染页面标题、游戏卡片与评分/时长/状态信息", async ({ page }) => {
+	test("显示六项独立整合包与模组体验，并标记为已体验", async ({ page }) => {
 		await expect(page.locator("#swup-container")).toHaveAttribute(
 			"data-current-page",
 			"games",
 		);
-		await expect(page.locator(".page-header__title")).toHaveText("Games");
-		await expect(page.locator(".games-section__count")).toHaveText("2 games");
+		await expect(page.locator(".games-section__count")).toContainText("6");
 
-		const minecraft = page.locator('[data-game="minecraft"]');
-		await expect(minecraft.locator("h2")).toHaveText("Minecraft");
-		await expect(minecraft.locator(".game-card__developer")).toHaveText(
-			"Mojang Studios",
+		const atm9 = page.locator('[data-game="minecraft-atm9"]');
+		await expect(atm9.locator("h2")).toHaveText("All the Mods 9（ATM9）");
+		await expect(atm9.locator(".game-card__developer")).toHaveText("ATMTeam");
+		await expect(atm9.locator('[data-status="played"]')).toBeVisible();
+		await expect(atm9.locator(".game-card__rating")).toHaveCount(0);
+		await expect(atm9.locator(".game-card__hours")).toHaveCount(0);
+		await expect(atm9.locator(".game-card__link")).toHaveAttribute(
+			"href",
+			"https://www.curseforge.com/minecraft/modpacks/all-the-mods-9",
 		);
-		await expect(minecraft.locator('[data-status="playing"]')).toContainText(
-			"Playing",
-		);
-		await expect(minecraft.locator(".game-card__rating")).toContainText("5.0");
-		await expect(minecraft.locator(".game-card__hours")).toContainText(
-			"420 hrs",
-		);
-		await expect(minecraft.locator(".game-card__platform")).toContainText("PC");
-		await expect(minecraft.locator(".game-card__year")).toHaveText("2011");
-		await expect(minecraft.locator(".game-card__tag").first()).toHaveText(
-			"Sandbox",
-		);
-		await expect(minecraft).not.toHaveClass(/game-card--featured/);
+
 		await expect(
-			minecraft.getByRole("link", { name: "Store page" }),
-		).toHaveAttribute("href", "https://www.minecraft.net/");
-
-		// 精选卡：徽标与横屏封面主视觉
-		const nte = page.locator('[data-game="nte-neverness-to-everness"]');
-		await expect(nte).toHaveClass(/game-card--featured/);
-		await expect(nte.locator(".game-card__featured")).toContainText("Featured");
-		await expect(nte.locator(".game-card__cover")).toBeVisible();
+			page.locator('[data-game="minecraft-cobblemon-chibai-zhenxing"]'),
+		).toBeVisible();
+		await expect(
+			page.locator('[data-game="minecraft-deceasedcraft"]'),
+		).toBeVisible();
+		await expect(
+			page.locator('[data-game="minecraft-create-above-and-beyond"]'),
+		).toBeVisible();
+		await expect(page.locator('[data-game="terraria-calamity"]')).toBeVisible();
+		await expect(
+			page.locator('[data-game="terraria-story-of-red-cloud"]'),
+		).toBeVisible();
 	});
 
-	test("直接加载时导航高亮与侧栏页面过滤正确", async ({ page }) => {
+	test("分类筛选与刷新保留对应体验条目", async ({ page }) => {
+		await page
+			.getByRole("button", { name: "Minecraft 整合包", exact: true })
+			.click();
+		await expect(page.locator(".game-card")).toHaveCount(4);
+		await expect(page.locator('[data-game="minecraft-atm9"]')).toBeVisible();
+		await expect(page.locator('[data-game="terraria-calamity"]')).toHaveCount(
+			0,
+		);
+		await expect(page.locator(".games-section__count")).toContainText("4");
+
+		await page.reload();
+		await expect(page.locator(".game-card")).toHaveCount(4);
 		await expect(
-			page.locator('a[data-nav-key="games"]').first(),
-		).toHaveAttribute("aria-current", "page");
+			page.getByRole("button", { name: "Minecraft 整合包", exact: true }),
+		).toHaveAttribute("aria-pressed", "true");
+
+		await page
+			.getByRole("button", { name: "Minecraft 整合包", exact: true })
+			.click();
+		await page
+			.getByRole("button", { name: "泰拉瑞亚模组", exact: true })
+			.click();
+		await expect(page.locator(".game-card")).toHaveCount(2);
+		await expect(page.locator('[data-game="terraria-calamity"]')).toBeVisible();
 		await expect(
-			page.locator('widget-layout[data-id="categories"]'),
+			page.locator('[data-game="terraria-story-of-red-cloud"]'),
 		).toBeVisible();
-		await expect(page.locator('widget-layout[data-id="tags"]')).toBeVisible();
 	});
 
-	test("分类筛选同步剩余游戏与计数（含 LoadingIndicator 过渡）", async ({
-		page,
-	}) => {
-		// 无条目的分类（RPG / Action / Casual）不渲染 chips
-		await expect(
-			page.getByRole("button", { name: "RPG", exact: true }),
-		).toHaveCount(0);
-
-		await page.getByRole("button", { name: "Open World", exact: true }).click();
-		await expect(
-			page.locator(".games-section__loading .m3-loading--contained"),
-		).toBeVisible();
-		await expect(page.locator(".game-card")).toHaveCount(1);
-		await expect(page.locator(".games-section__count")).toHaveText("1 games");
-		await expect(
-			page.locator('[data-game="nte-neverness-to-everness"]'),
-		).toBeVisible();
-		await expect(page.locator('[data-game="minecraft"]')).toHaveCount(0);
-		await expect(page.locator(".games-section__loading")).toHaveCount(0);
-
-		// 再次点击已选分类取消筛选，恢复全部
-		await page.getByRole("button", { name: "Open World", exact: true }).click();
-		await expect(page.locator(".game-card")).toHaveCount(GAME_COUNT);
-	});
-
-	test("搜索无结果时展示空状态反馈", async ({ page }) => {
+	test("搜索体验条目并清除查询", async ({ page }) => {
 		const searchInput = page.locator(".games-section__search input");
-		await searchInput.fill("Unknown9999");
-		await expect(page.locator(".game-card")).toHaveCount(0);
-		await expect(page.locator(".games-section__empty")).toContainText(
-			"No games matched your filters",
-		);
-	});
-
-	test("实时搜索过滤与清除（URL ?q= 同步）", async ({ page }) => {
-		const searchInput = page.locator(".games-section__search input");
-		await expect(searchInput).toBeVisible();
-		await searchInput.fill("Minecraft");
+		await searchInput.fill("红云物语");
 		await expect(page.locator(".game-card")).toHaveCount(1);
-		await expect(page.locator('[data-game="minecraft"]')).toBeVisible();
-		await expect(page).toHaveURL(/[?&]q=Minecraft/);
+		await expect(
+			page.locator('[data-game="terraria-story-of-red-cloud"]'),
+		).toBeVisible();
+		await expect(page).toHaveURL(/[?&]q=/);
 
-		// 清除搜索恢复全部
-		const clearBtn = page.locator(".games-section__search-clear");
-		await clearBtn.click();
+		await page.locator(".games-section__search-clear").click();
 		await expect(page.locator(".game-card")).toHaveCount(GAME_COUNT);
 		await expect(page).not.toHaveURL(/q=/);
 	});
 
-	test("URL 参数刷新后恢复筛选状态", async ({ page }) => {
-		await page.getByRole("button", { name: "Sandbox", exact: true }).click();
-		await expect(page).toHaveURL(/[?&]category=sandbox/);
-		await expect(page.locator(".game-card")).toHaveCount(1);
-		await expect(page.locator('[data-game="minecraft"]')).toBeVisible();
-
-		// 刷新后恢复同一次筛选
-		await page.reload();
-		await expect(page.locator(".game-card")).toHaveCount(1);
-		await expect(page.locator('[data-game="minecraft"]')).toBeVisible();
-		await expect(
-			page.getByRole("button", { name: "Sandbox", exact: true }),
-		).toHaveAttribute("aria-pressed", "true");
+	test("搜索无结果时展示空状态反馈", async ({ page }) => {
+		await page.locator(".games-section__search input").fill("Unknown9999");
+		await expect(page.locator(".game-card")).toHaveCount(0);
+		await expect(page.locator(".games-section__empty")).toBeVisible();
 	});
-});
 
-test.describe("游戏展示页 Swup 导航", () => {
-	test.use({ viewport: { width: 1280, height: 900 } });
-
-	test("从持久顶栏进入后同步页面、导航与侧栏状态", async ({ page }) => {
+	test("从持久顶栏导航时同步游戏页状态", async ({ page }) => {
 		await page.goto("/skills/", { waitUntil: "domcontentloaded" });
-		await page.getByRole("button", { name: "More", exact: true }).click();
+		await page
+			.locator("[data-nav-group]")
+			.filter({ has: page.locator(".top-app-bar__nav-link") })
+			.last()
+			.locator("button.top-app-bar__nav-link")
+			.click();
 		await page.locator('a[data-nav-key="games"]').click();
 
 		await expect(page).toHaveURL(/\/games\/$/);
@@ -138,9 +111,5 @@ test.describe("游戏展示页 Swup 导航", () => {
 			"aria-current",
 			"page",
 		);
-		await expect(
-			page.locator('widget-layout[data-id="categories"]'),
-		).toBeVisible();
-		await expect(page.locator('widget-layout[data-id="tags"]')).toBeVisible();
 	});
 });
