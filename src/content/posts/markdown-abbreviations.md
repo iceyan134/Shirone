@@ -3,7 +3,7 @@ title: Markdown 缩写说明
 published: 2026-08-27
 description: 定义常见缩写，让读者悬停时能看到完整含义。
 tags: [示例, Markdown, 缩写, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

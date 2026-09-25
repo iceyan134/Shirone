@@ -5,7 +5,7 @@ description: 演示如何在博客文章中嵌入 YouTube、Bilibili、AcFun 和
 tags: [示例, 视频]
 series: media-embeds
 seriesOrder: 1
-category: 示例
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

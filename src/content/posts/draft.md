@@ -3,7 +3,7 @@ title: 草稿示例
 published: 2026-08-27
 description: 这篇文章展示 draft 字段的作用。
 tags: [草稿, 示例]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: true
 ---

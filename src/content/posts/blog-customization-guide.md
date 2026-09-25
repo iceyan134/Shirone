@@ -4,7 +4,7 @@ published: 2026-09-24
 publishedAt: 2026-09-24T20:30:00+08:00
 description: 总结这个博客可以从身份、视觉、内容、侧栏、页面、评论、统计、音乐和部署等方向做哪些调整。
 tags: [博客配置, Shirone, 站点定制]
-category: 教程
+category: 站点记录
 lang: zh_CN
 draft: false
 ---

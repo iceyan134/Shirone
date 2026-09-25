@@ -3,7 +3,7 @@ title: Markdown 基础示例
 published: 2023-10-19
 description: 一篇基础 Markdown 示例文章，展示标题、列表、引用、表格和代码块。
 tags: [Markdown, 示例]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

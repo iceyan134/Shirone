@@ -3,7 +3,7 @@ title: Shirone Markdown 增强语法
 published: 2026-08-26
 description: 了解 Shirone 自带的 Markdown 扩展、表达式组件和作者语法。
 tags: [示例, Markdown, 扩展, 主题, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

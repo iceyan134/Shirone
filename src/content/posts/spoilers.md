@@ -3,7 +3,7 @@ title: Markdown 剧透隐藏
 published: 2026-08-27
 description: 隐藏答案或剧透内容，同时保持可访问性。
 tags: [示例, Markdown, 剧透, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

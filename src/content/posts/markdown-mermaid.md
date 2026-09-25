@@ -3,7 +3,7 @@ title: Mermaid 图表示例
 published: 2026-08-27
 description: 用 Mermaid 在文章中绘制流程图、时序图、甘特图和关系图。
 tags: [Markdown, Mermaid, 图表, 示例]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

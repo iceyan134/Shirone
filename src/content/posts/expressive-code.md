@@ -3,7 +3,7 @@ title: Expressive Code 代码块示例
 published: 2026-08-25
 description: 展示 Shirone 中代码块的标题、行号、高亮、终端窗口和折叠效果。
 tags: [示例, 代码高亮, Markdown]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

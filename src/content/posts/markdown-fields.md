@@ -3,7 +3,7 @@ title: Markdown 参数字段卡片
 published: 2026-08-27
 description: 用字段卡片记录 API、组件参数或配置项。
 tags: [Markdown, 字段, 文档, 示例]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

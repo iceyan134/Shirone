@@ -3,7 +3,7 @@ title: Markdown 步骤
 published: 2026-08-27
 description: 用紧凑的步骤流展示教程、流程和检查清单。
 tags: [示例, Markdown, 步骤, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

@@ -3,7 +3,7 @@ title: Markdown 标记高亮
 published: 2026-08-27
 description: 用 token 驱动的标记语法突出重点词句。
 tags: [示例, Markdown, 高亮, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

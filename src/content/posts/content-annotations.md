@@ -3,7 +3,7 @@ title: 内容注释
 published: 2026-08-27
 description: 在正文旁添加紧凑的补充说明，让解释不打断阅读节奏。
 tags: [示例, Markdown, 注释, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

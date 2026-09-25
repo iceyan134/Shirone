@@ -3,7 +3,7 @@ title: 加密文章与密码保护示例
 published: 2026-08-26
 description: 演示 Shirone 的文章加密、会话记忆和解密后的阅读体验。
 tags: [示例, 加密, Markdown, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 encrypted: true
 password: shirone

@@ -3,7 +3,7 @@ title: "Markdown 文件包含"
 published: 2026-08-28
 description: "在构建时包含本地 Markdown 文件或指定行片段。"
 tags: [Markdown, Shirone, Include]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

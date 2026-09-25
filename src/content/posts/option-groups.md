@@ -3,7 +3,7 @@ title: Markdown 选项组
 published: 2026-08-27
 description: 用紧凑的 M3E 选项组展示多个相关版本、方案或示例。
 tags: [示例, Markdown, 选项组, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

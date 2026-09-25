@@ -5,7 +5,7 @@ description: 使用 Audio Reader 在文章中按需播放短音频，不会在�
 tags: [示例, 音频朗读]
 series: media-embeds
 seriesOrder: 2
-category: 示例
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

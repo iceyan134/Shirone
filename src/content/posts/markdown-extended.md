@@ -3,7 +3,7 @@ title: Markdown 扩展功能
 published: 2023-10-20
 description: 介绍常用扩展语法：提示、代码块、表格、图片和数学公式。
 tags: [Markdown, 扩展, 示例]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

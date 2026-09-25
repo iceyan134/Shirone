@@ -3,7 +3,7 @@ title: "图片网格：语法与完整示例"
 published: 2026-07-13
 description: "图片网格语法、参数、裁切、响应式、标题和灯箱导航的中文示例。"
 tags: [Markdown, 图片网格, 图集, 示例]
-category: 示例
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

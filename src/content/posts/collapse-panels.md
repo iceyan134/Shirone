@@ -3,7 +3,7 @@ title: Markdown 折叠面板
 published: 2026-08-27
 description: 使用可访问的折叠面板收纳较长的补充内容、答案或配置说明。
 tags: [示例, Markdown, 折叠面板, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---

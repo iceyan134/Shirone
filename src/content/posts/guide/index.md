@@ -6,7 +6,7 @@ pinned: true
 description: "一份中文指南：如何创建文章、填写 frontmatter、使用 Markdown 扩展、加密、媒体和 MDX。"
 image: "./cover.jpeg"
 tags: ["Shirone", "指南", "Markdown", "M3E", "博客"]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---
@@ -37,7 +37,7 @@ updated: 2026-09-25
 description: "文章摘要"
 image: "./cover.webp"
 tags: [M3E, 博客, 前端]
-category: 教程
+category: 博客教程
 pinned: false
 draft: false
 comment: true

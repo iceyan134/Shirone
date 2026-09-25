@@ -3,7 +3,7 @@ title: Markdown 提示块
 published: 2026-08-27
 description: 使用 Shirone 的 M3E 提示容器展示备注、提醒、警告和可展开内容。
 tags: [示例, Markdown, 提示块, Shirone]
-category: 教程
+category: 博客教程
 lang: zh_CN
 draft: false
 ---
