@@ -14,8 +14,8 @@ export const announcementConfig: AnnouncementConfig = withUserConfig(
 		closable: true,
 		link: {
 			enable: true,
-			text: "查看个性化说明",
-			url: "/posts/blog-customization-guide/",
+			text: "阅读 NPC1L1 项目入门地图",
+			url: "/posts/npc1l1-project-onboarding/",
 			external: false,
 		},
 	},
