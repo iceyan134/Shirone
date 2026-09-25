@@ -47,7 +47,9 @@ src/generated/local-icon-collections.ts
 
 # anime snapshot data & downloaded covers
 src/data/anime-snapshots/*.json
+!src/data/anime-snapshots/bilibili.json
 public/assets/anime/covers/*
+!public/assets/anime/covers/bili_*.webp
 !public/assets/anime/covers/.gitkeep
 
 # generated responsive moment thumbnails
